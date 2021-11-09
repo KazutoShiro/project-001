@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Entity;
+using System.Data.Sql;
 
 namespace PBL
 {
@@ -36,16 +39,35 @@ namespace PBL
 
         private void rButton2_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            this.Hide();
-            form.ShowDialog();
-            this.Close();
+            string Last_Name = customText8.Texts;
+            string First_Name = customText7.Texts;
+            string Email = customText5.Texts;
+            string Gender = customText3.Texts;
+            string City = customText10.Texts;
+            string Country = customText11.Texts;
+            string Password = customText6.Texts;
+            string Confirmed_Password = customText6.Texts;
+            if (Last_Name == string.Empty || First_Name == string.Empty || Email == string.Empty || Gender == string.Empty || City == string.Empty || Country == string.Empty || Password == string.Empty || Confirmed_Password == string.Empty || customText4.Texts == string.Empty) { MessageBox.Show("Please Complete the Form", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (Password != Confirmed_Password) { MessageBox.Show("Confirmation Password does not Match", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else 
+            {
+                int Age = Convert.ToInt32(customText4.Texts);
+                Form1 form = new Form1();
+                this.Hide();
+                form.ShowDialog();
+                this.Close();
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             panel2.Hide();
             panel1.Show();
+        }
+
+        private void customText8__TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
