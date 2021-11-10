@@ -6,13 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Data.SqlClient;
-using System.Data.Entity;
-using System.Data.Sql;
-using System.IO;
 
 namespace PBL
 {
@@ -63,64 +59,69 @@ namespace PBL
             else 
             {
                 int Age = Convert.ToInt32(customText4.Texts);
-                SqlConnection Wire = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = PBL; Integrated Security = True;"); (error); // Create a local database called PBL and inside a table Called USER_ACCOUNTS Parameters Below //
+                SqlConnection Wire = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = PBL; Integrated Security = True;"); // Create a local database called PBL and inside a table Called USER_ACCOUNTS Parameters Below //
                 Wire.Open();
-                string query_1 = "INSERT INTO USER_ACCOUNTS VALUES(@FIRST_NAME, @LAST_NAME, @EMAIL, @GENDER, @CITY, @COUNTRY, @PASSWARD, @CONFIRMED_PASSWARD, @AGE);"; // Copy the Parameters [VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, INT];
+                SqlCommand check_Email_is_Available = new SqlCommand("SELECT COUNT(*) FROM USER_ACCOUNTS WHERE EMAIL = '" + Email + "';", Wire);
+                int UserExist = Convert.ToInt32(check_Email_is_Available.ExecuteScalar());
+                if (UserExist == 1) { MessageBox.Show("Email Is being used", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); Wire.Close(); }
+                else
+                {
+                    string query_1 = "INSERT INTO USER_ACCOUNTS VALUES(@FIRST_NAME, @LAST_NAME, @EMAIL, @GENDER, @CITY, @COUNTRY, @PASSWARD, @CONFIRMED_PASSWARD, @AGE);"; // Copy the Parameters [VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, INT];
 
-                SqlParameter SQL_FIRST_NAME_PARAMETER = new SqlParameter();
-                SQL_FIRST_NAME_PARAMETER.ParameterName = "@FIRST_NAME";
-                SQL_FIRST_NAME_PARAMETER.Value = First_Name;
+                    SqlParameter SQL_FIRST_NAME_PARAMETER = new SqlParameter();
+                    SQL_FIRST_NAME_PARAMETER.ParameterName = "@FIRST_NAME";
+                    SQL_FIRST_NAME_PARAMETER.Value = First_Name;
 
-                SqlParameter SQL_LAST_NAME_PARAMETER = new SqlParameter();
-                SQL_LAST_NAME_PARAMETER.ParameterName = "@LAST_NAME";
-                SQL_LAST_NAME_PARAMETER.Value = Last_Name;
+                    SqlParameter SQL_LAST_NAME_PARAMETER = new SqlParameter();
+                    SQL_LAST_NAME_PARAMETER.ParameterName = "@LAST_NAME";
+                    SQL_LAST_NAME_PARAMETER.Value = Last_Name;
 
-                SqlParameter SQL_EMAIL_PARAMETER = new SqlParameter();
-                SQL_EMAIL_PARAMETER.ParameterName = "@EMAIL";
-                SQL_EMAIL_PARAMETER.Value = Email;
+                    SqlParameter SQL_EMAIL_PARAMETER = new SqlParameter();
+                    SQL_EMAIL_PARAMETER.ParameterName = "@EMAIL";
+                    SQL_EMAIL_PARAMETER.Value = Email;
 
-                SqlParameter SQL_GENDER_PARAMETER = new SqlParameter();
-                SQL_GENDER_PARAMETER.ParameterName = "@GENDER";
-                SQL_GENDER_PARAMETER.Value = Gender;
+                    SqlParameter SQL_GENDER_PARAMETER = new SqlParameter();
+                    SQL_GENDER_PARAMETER.ParameterName = "@GENDER";
+                    SQL_GENDER_PARAMETER.Value = Gender;
 
-                SqlParameter SQL_CITY_PARAMETER = new SqlParameter();
-                SQL_CITY_PARAMETER.ParameterName = "@CITY";
-                SQL_CITY_PARAMETER.Value = City;
+                    SqlParameter SQL_CITY_PARAMETER = new SqlParameter();
+                    SQL_CITY_PARAMETER.ParameterName = "@CITY";
+                    SQL_CITY_PARAMETER.Value = City;
 
-                SqlParameter SQL_COUNTRY_PARAMETER = new SqlParameter();
-                SQL_COUNTRY_PARAMETER.ParameterName = "@COUNTRY";
-                SQL_COUNTRY_PARAMETER.Value = Country;
+                    SqlParameter SQL_COUNTRY_PARAMETER = new SqlParameter();
+                    SQL_COUNTRY_PARAMETER.ParameterName = "@COUNTRY";
+                    SQL_COUNTRY_PARAMETER.Value = Country;
 
-                SqlParameter SQL_PASSWORD_PARAMETER = new SqlParameter();
-                SQL_PASSWORD_PARAMETER.ParameterName = "@PASSWARD";
-                SQL_PASSWORD_PARAMETER.Value = Password;
+                    SqlParameter SQL_PASSWORD_PARAMETER = new SqlParameter();
+                    SQL_PASSWORD_PARAMETER.ParameterName = "@PASSWARD";
+                    SQL_PASSWORD_PARAMETER.Value = Password;
 
-                SqlParameter SQL_CONFIRMED_PASSWORD_PARAMETER = new SqlParameter();
-                SQL_CONFIRMED_PASSWORD_PARAMETER.ParameterName = "@CONFIRMED_PASSWARD";
-                SQL_CONFIRMED_PASSWORD_PARAMETER.Value = Confirmed_Password;
+                    SqlParameter SQL_CONFIRMED_PASSWORD_PARAMETER = new SqlParameter();
+                    SQL_CONFIRMED_PASSWORD_PARAMETER.ParameterName = "@CONFIRMED_PASSWARD";
+                    SQL_CONFIRMED_PASSWORD_PARAMETER.Value = Confirmed_Password;
 
-                SqlParameter SQL_AGE_PARAMETER = new SqlParameter();
-                SQL_AGE_PARAMETER.ParameterName = "@AGE";
-                SQL_AGE_PARAMETER.Value = Age;
+                    SqlParameter SQL_AGE_PARAMETER = new SqlParameter();
+                    SQL_AGE_PARAMETER.ParameterName = "@AGE";
+                    SQL_AGE_PARAMETER.Value = Age;
 
-                SqlCommand Execute = new SqlCommand(query_1, Wire);
-                Execute.Parameters.Add(SQL_FIRST_NAME_PARAMETER);
-                Execute.Parameters.Add(SQL_LAST_NAME_PARAMETER);
-                Execute.Parameters.Add(SQL_EMAIL_PARAMETER);
-                Execute.Parameters.Add(SQL_GENDER_PARAMETER);
-                Execute.Parameters.Add(SQL_CITY_PARAMETER);
-                Execute.Parameters.Add(SQL_COUNTRY_PARAMETER);
-                Execute.Parameters.Add(SQL_PASSWORD_PARAMETER);
-                Execute.Parameters.Add(SQL_CONFIRMED_PASSWORD_PARAMETER);
-                Execute.Parameters.Add(SQL_AGE_PARAMETER);
-                Execute.ExecuteNonQuery();
-                Wire.Close();
-                Form1 form = new Form1();
-                this.Hide();
-                form.ShowDialog();
-                this.Close();
+                    SqlCommand Execute = new SqlCommand(query_1, Wire);
+                    Execute.Parameters.Add(SQL_FIRST_NAME_PARAMETER);
+                    Execute.Parameters.Add(SQL_LAST_NAME_PARAMETER);
+                    Execute.Parameters.Add(SQL_EMAIL_PARAMETER);
+                    Execute.Parameters.Add(SQL_GENDER_PARAMETER);
+                    Execute.Parameters.Add(SQL_CITY_PARAMETER);
+                    Execute.Parameters.Add(SQL_COUNTRY_PARAMETER);
+                    Execute.Parameters.Add(SQL_PASSWORD_PARAMETER);
+                    Execute.Parameters.Add(SQL_CONFIRMED_PASSWORD_PARAMETER);
+                    Execute.Parameters.Add(SQL_AGE_PARAMETER);
+                    Execute.ExecuteNonQuery();
+                    Form1 form = new Form1();
+                    Wire.Close();
+                    this.Hide();
+                    form.ShowDialog();
+                    this.Close();
+                }
             }
-           
         }
 
         private void label4_Click(object sender, EventArgs e)
