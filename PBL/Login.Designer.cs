@@ -31,14 +31,17 @@ namespace PBL
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.rButton1 = new PBL.controls.RButton();
+            this.customText2 = new PBL.controls.CustomText();
+            this.customText1 = new PBL.controls.CustomText();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.customText11 = new PBL.controls.CustomText();
+            this.customText10 = new PBL.controls.CustomText();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.customText11 = new PBL.controls.CustomText();
-            this.customText10 = new PBL.controls.CustomText();
             this.customText9 = new PBL.controls.CustomText();
             this.customText6 = new PBL.controls.CustomText();
             this.customText5 = new PBL.controls.CustomText();
@@ -47,9 +50,6 @@ namespace PBL
             this.rButton2 = new PBL.controls.RButton();
             this.customText7 = new PBL.controls.CustomText();
             this.customText8 = new PBL.controls.CustomText();
-            this.rButton1 = new PBL.controls.RButton();
-            this.customText2 = new PBL.controls.CustomText();
-            this.customText1 = new PBL.controls.CustomText();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +64,7 @@ namespace PBL
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(600, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 708);
             this.panel1.TabIndex = 0;
@@ -81,6 +81,78 @@ namespace PBL
             this.label3.TabIndex = 8;
             this.label3.Text = "Sign Up";
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // rButton1
+            // 
+            this.rButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.rButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
+            this.rButton1.BorderColor = System.Drawing.Color.Blue;
+            this.rButton1.BorderRadius = 40;
+            this.rButton1.BorderSize = 0;
+            this.rButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rButton1.FlatAppearance.BorderSize = 0;
+            this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rButton1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rButton1.Location = new System.Drawing.Point(189, 480);
+            this.rButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.rButton1.Name = "rButton1";
+            this.rButton1.Size = new System.Drawing.Size(220, 49);
+            this.rButton1.TabIndex = 7;
+            this.rButton1.Text = "Log In";
+            this.rButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rButton1.UseVisualStyleBackColor = false;
+            this.rButton1.Click += new System.EventHandler(this.rButton1_Click);
+            // 
+            // customText2
+            // 
+            this.customText2.BackColor = System.Drawing.Color.White;
+            this.customText2.BorderColor = System.Drawing.Color.DimGray;
+            this.customText2.BorderFocusColor = System.Drawing.Color.DimGray;
+            this.customText2.BorderRadius = 15;
+            this.customText2.BorderSize = 1;
+            this.customText2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.customText2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customText2.ForeColor = System.Drawing.Color.DimGray;
+            this.customText2.IsPassword = true;
+            this.customText2.IsPlaceHolder = true;
+            this.customText2.Location = new System.Drawing.Point(91, 357);
+            this.customText2.Margin = new System.Windows.Forms.Padding(5);
+            this.customText2.Multiline = false;
+            this.customText2.Name = "customText2";
+            this.customText2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.customText2.PasswordChar = true;
+            this.customText2.PlaceHolderColor = System.Drawing.Color.DarkGray;
+            this.customText2.PlaceHolderText = "Password";
+            this.customText2.Size = new System.Drawing.Size(417, 41);
+            this.customText2.TabIndex = 6;
+            this.customText2.Texts = "";
+            this.customText2.Underlined = false;
+            // 
+            // customText1
+            // 
+            this.customText1.BackColor = System.Drawing.Color.White;
+            this.customText1.BorderColor = System.Drawing.Color.DimGray;
+            this.customText1.BorderFocusColor = System.Drawing.Color.DimGray;
+            this.customText1.BorderRadius = 15;
+            this.customText1.BorderSize = 1;
+            this.customText1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.customText1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customText1.ForeColor = System.Drawing.Color.DimGray;
+            this.customText1.IsPassword = false;
+            this.customText1.IsPlaceHolder = true;
+            this.customText1.Location = new System.Drawing.Point(91, 234);
+            this.customText1.Margin = new System.Windows.Forms.Padding(5);
+            this.customText1.Multiline = false;
+            this.customText1.Name = "customText1";
+            this.customText1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.customText1.PasswordChar = false;
+            this.customText1.PlaceHolderColor = System.Drawing.Color.DarkGray;
+            this.customText1.PlaceHolderText = "Email";
+            this.customText1.Size = new System.Drawing.Size(419, 41);
+            this.customText1.TabIndex = 5;
+            this.customText1.Texts = "";
+            this.customText1.Underlined = false;
             // 
             // label2
             // 
@@ -120,44 +192,10 @@ namespace PBL
             this.panel2.Controls.Add(this.customText7);
             this.panel2.Controls.Add(this.customText8);
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1200, 708);
             this.panel2.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(635, 639);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 18);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Log in";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(664, 638);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 18);
-            this.label5.TabIndex = 15;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(501, 639);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 18);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Have an account? ";
             // 
             // customText11
             // 
@@ -208,6 +246,40 @@ namespace PBL
             this.customText10.TabIndex = 17;
             this.customText10.Texts = "";
             this.customText10.Underlined = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(635, 639);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 18);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Log in";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(664, 638);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 18);
+            this.label5.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(501, 639);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 18);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Have an account? ";
             // 
             // customText9
             // 
@@ -407,78 +479,6 @@ namespace PBL
             this.customText8.Underlined = false;
             this.customText8._TextChanged += new System.EventHandler(this.customText8__TextChanged);
             // 
-            // rButton1
-            // 
-            this.rButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.rButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(244)))), ((int)(((byte)(230)))));
-            this.rButton1.BorderColor = System.Drawing.Color.Blue;
-            this.rButton1.BorderRadius = 40;
-            this.rButton1.BorderSize = 0;
-            this.rButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rButton1.FlatAppearance.BorderSize = 0;
-            this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rButton1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rButton1.Location = new System.Drawing.Point(189, 480);
-            this.rButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.rButton1.Name = "rButton1";
-            this.rButton1.Size = new System.Drawing.Size(220, 49);
-            this.rButton1.TabIndex = 7;
-            this.rButton1.Text = "Log In";
-            this.rButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rButton1.UseVisualStyleBackColor = false;
-            this.rButton1.Click += new System.EventHandler(this.rButton1_Click);
-            // 
-            // customText2
-            // 
-            this.customText2.BackColor = System.Drawing.Color.White;
-            this.customText2.BorderColor = System.Drawing.Color.DimGray;
-            this.customText2.BorderFocusColor = System.Drawing.Color.DimGray;
-            this.customText2.BorderRadius = 15;
-            this.customText2.BorderSize = 1;
-            this.customText2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.customText2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customText2.ForeColor = System.Drawing.Color.DimGray;
-            this.customText2.IsPassword = true;
-            this.customText2.IsPlaceHolder = true;
-            this.customText2.Location = new System.Drawing.Point(91, 357);
-            this.customText2.Margin = new System.Windows.Forms.Padding(5);
-            this.customText2.Multiline = false;
-            this.customText2.Name = "customText2";
-            this.customText2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.customText2.PasswordChar = true;
-            this.customText2.PlaceHolderColor = System.Drawing.Color.DarkGray;
-            this.customText2.PlaceHolderText = "Password";
-            this.customText2.Size = new System.Drawing.Size(417, 41);
-            this.customText2.TabIndex = 6;
-            this.customText2.Texts = "";
-            this.customText2.Underlined = false;
-            // 
-            // customText1
-            // 
-            this.customText1.BackColor = System.Drawing.Color.White;
-            this.customText1.BorderColor = System.Drawing.Color.DimGray;
-            this.customText1.BorderFocusColor = System.Drawing.Color.DimGray;
-            this.customText1.BorderRadius = 15;
-            this.customText1.BorderSize = 1;
-            this.customText1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.customText1.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customText1.ForeColor = System.Drawing.Color.DimGray;
-            this.customText1.IsPassword = false;
-            this.customText1.IsPlaceHolder = true;
-            this.customText1.Location = new System.Drawing.Point(91, 234);
-            this.customText1.Margin = new System.Windows.Forms.Padding(5);
-            this.customText1.Multiline = false;
-            this.customText1.Name = "customText1";
-            this.customText1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.customText1.PasswordChar = false;
-            this.customText1.PlaceHolderColor = System.Drawing.Color.DarkGray;
-            this.customText1.PlaceHolderText = "Email";
-            this.customText1.Size = new System.Drawing.Size(419, 41);
-            this.customText1.TabIndex = 5;
-            this.customText1.Texts = "";
-            this.customText1.Underlined = false;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -487,7 +487,7 @@ namespace PBL
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

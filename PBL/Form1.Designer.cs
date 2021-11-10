@@ -62,7 +62,7 @@ namespace PBL
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.rButton1);
             this.panel2.Location = new System.Drawing.Point(0, 30);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(320, 1012);
             this.panel2.TabIndex = 1;
@@ -93,7 +93,7 @@ namespace PBL
             this.iconButton6.IconSize = 25;
             this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton6.Location = new System.Drawing.Point(-3, 874);
-            this.iconButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton6.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.iconButton6.Size = new System.Drawing.Size(323, 62);
@@ -126,7 +126,7 @@ namespace PBL
             this.iconButton5.IconSize = 35;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton5.Location = new System.Drawing.Point(1, 610);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.iconButton5.Size = new System.Drawing.Size(319, 94);
@@ -147,7 +147,7 @@ namespace PBL
             this.iconButton4.IconSize = 35;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton4.Location = new System.Drawing.Point(1, 510);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.iconButton4.Size = new System.Drawing.Size(319, 94);
@@ -168,7 +168,7 @@ namespace PBL
             this.iconButton3.IconSize = 35;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton3.Location = new System.Drawing.Point(1, 409);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.iconButton3.Size = new System.Drawing.Size(319, 94);
@@ -189,7 +189,7 @@ namespace PBL
             this.iconButton2.IconSize = 35;
             this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton2.Location = new System.Drawing.Point(1, 308);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.iconButton2.Size = new System.Drawing.Size(319, 94);
@@ -211,7 +211,7 @@ namespace PBL
             this.iconButton1.IconSize = 35;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(1, 207);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(33, 0, 0, 0);
             this.iconButton1.Size = new System.Drawing.Size(319, 94);
@@ -232,6 +232,7 @@ namespace PBL
             this.label1.Size = new System.Drawing.Size(102, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Last Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // rButton1
             // 
@@ -244,7 +245,7 @@ namespace PBL
             this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rButton1.ForeColor = System.Drawing.Color.White;
             this.rButton1.Location = new System.Drawing.Point(48, 55);
-            this.rButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rButton1.Margin = new System.Windows.Forms.Padding(4);
             this.rButton1.Name = "rButton1";
             this.rButton1.Size = new System.Drawing.Size(67, 62);
             this.rButton1.TabIndex = 3;
@@ -255,7 +256,7 @@ namespace PBL
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(317, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1600, 1015);
             this.panel1.TabIndex = 2;
@@ -267,7 +268,7 @@ namespace PBL
             this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1917, 30);
             this.panel3.TabIndex = 0;
@@ -282,7 +283,7 @@ namespace PBL
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 15;
             this.iconButton7.Location = new System.Drawing.Point(1796, 0);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton7.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(60, 30);
             this.iconButton7.TabIndex = 1;
@@ -298,7 +299,7 @@ namespace PBL
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Silver;
             this.button1.Location = new System.Drawing.Point(1856, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 30);
             this.button1.TabIndex = 0;
@@ -315,7 +316,7 @@ namespace PBL
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

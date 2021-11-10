@@ -15,6 +15,7 @@ namespace PBL
         public Form1()
         {
             InitializeComponent();
+
         }
 
 
@@ -71,6 +72,11 @@ namespace PBL
         private void iconButton7_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
