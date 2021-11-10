@@ -24,10 +24,21 @@ namespace PBL
                 }
         private void rButton1_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            this.Hide();
-            form.ShowDialog();
-            this.Close();
+            string Login_Email = customText1.Texts;
+            string Login_Password = customText2.Texts;
+            SqlConnection Wire_2 = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = PBL; Integrated Security = True;"); // Create a local database called PBL and inside a table Called USER_ACCOUNTS Parameters Below //
+            Wire_2.Open();
+            SqlCommand check_if_account_is_valid = new SqlCommand("SELECT COUNT(*) FROM USER_ACCOUNTS WHERE EMAIL ='" + Login_Email + "' AND PASSWARD ='" + Login_Password + "';", Wire_2);
+            int check_account_int = Convert.ToInt32(check_if_account_is_valid.ExecuteScalar());
+            if (check_account_int == 0) { MessageBox.Show("Incorrect Password or Email", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); Wire_2.Close(); }
+            else
+            {
+                Form1 form = new Form1();
+                this.Hide();
+                form.ShowDialog();
+                this.Close();
+                Wire_2.Close();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
