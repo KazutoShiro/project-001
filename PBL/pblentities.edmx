@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PBLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JOB_POSTING">
+          <Key>
+            <PropertyRef Name="POSTID" />
+          </Key>
+          <Property Name="POSTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COMPANYNAME" Type="varchar" MaxLength="150" />
+          <Property Name="JOBFIELD" Type="varchar" MaxLength="100" />
+          <Property Name="CITY" Type="varchar" MaxLength="150" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="60" />
+          <Property Name="SALARY" Type="int" />
+          <Property Name="DESCIPT" Type="varchar" MaxLength="1000" />
+          <Property Name="QUALI" Type="varchar" MaxLength="1000" />
+          <Property Name="DETAILS" Type="varchar" MaxLength="1000" />
+          <Property Name="POSTDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="USER_ACCOUNTS">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="150" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="150" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="GENDER" Type="varchar" MaxLength="150" />
+          <Property Name="CITY" Type="varchar" MaxLength="150" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="150" />
+          <Property Name="PASSWARD" Type="varchar" MaxLength="150" />
+          <Property Name="CONFIRMED_PASSWARD" Type="varchar" MaxLength="150" />
+          <Property Name="AGE" Type="int" />
+        </EntityType>
+        <EntityContainer Name="PBLModelStoreContainer">
+          <EntitySet Name="JOB_POSTING" EntityType="Self.JOB_POSTING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_ACCOUNTS" EntityType="Self.USER_ACCOUNTS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PBLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="JOB_POSTING">
+          <Key>
+            <PropertyRef Name="POSTID" />
+          </Key>
+          <Property Name="POSTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMPANYNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="JOBFIELD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SALARY" Type="Int32" />
+          <Property Name="DESCIPT" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="QUALI" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DETAILS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="POSTDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="USER_ACCOUNTS">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="FIRST_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GENDER" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWARD" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CONFIRMED_PASSWARD" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AGE" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="PBLEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JOB_POSTING" EntityType="Self.JOB_POSTING" />
+          <EntitySet Name="USER_ACCOUNTS" EntityType="Self.USER_ACCOUNTS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PBLModelStoreContainer" CdmEntityContainer="PBLEntities">
+          <EntitySetMapping Name="JOB_POSTING">
+            <EntityTypeMapping TypeName="PBLModel.JOB_POSTING">
+              <MappingFragment StoreEntitySet="JOB_POSTING">
+                <ScalarProperty Name="POSTID" ColumnName="POSTID" />
+                <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+                <ScalarProperty Name="JOBFIELD" ColumnName="JOBFIELD" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="SALARY" ColumnName="SALARY" />
+                <ScalarProperty Name="DESCIPT" ColumnName="DESCIPT" />
+                <ScalarProperty Name="QUALI" ColumnName="QUALI" />
+                <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+                <ScalarProperty Name="POSTDATE" ColumnName="POSTDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_ACCOUNTS">
+            <EntityTypeMapping TypeName="PBLModel.USER_ACCOUNTS">
+              <MappingFragment StoreEntitySet="USER_ACCOUNTS">
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="PASSWARD" ColumnName="PASSWARD" />
+                <ScalarProperty Name="CONFIRMED_PASSWARD" ColumnName="CONFIRMED_PASSWARD" />
+                <ScalarProperty Name="AGE" ColumnName="AGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
