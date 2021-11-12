@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Data.SqlClient;
@@ -64,6 +65,8 @@ namespace PBL
             try { int parsetest = Convert.ToInt32(customText4.Texts); }
             catch (FormatException) { is_it_digits = true; }
             if (Last_Name == string.Empty || First_Name == string.Empty || Email == string.Empty || Gender == string.Empty || City == string.Empty || Country == string.Empty || Password == string.Empty || Confirmed_Password == string.Empty || customText4.Texts == string.Empty) { MessageBox.Show("Please Complete the Form", "Incomplete Form", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (Regex.IsMatch(Last_Name, @"^[a-zA-Z]+$") != true) { MessageBox.Show("Last Name should only contain letters", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else if (Regex.IsMatch(First_Name, @"^[a-zA-Z]+$") != true) { MessageBox.Show("First Name should only contain letters", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else if (Password != Confirmed_Password) { MessageBox.Show("Confirmation Password does not Match", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else if ( check_email_address == true) { MessageBox.Show("This is not a working email address", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); } 
             else if (is_it_digits == true) { MessageBox.Show("Age input is not applicable", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -74,7 +77,7 @@ namespace PBL
                 Wire.Open();
                 SqlCommand check_Email_is_Available = new SqlCommand("SELECT COUNT(*) FROM USER_ACCOUNTS WHERE EMAIL = '" + Email + "';", Wire);
                 int UserExist = Convert.ToInt32(check_Email_is_Available.ExecuteScalar());
-                if (UserExist == 1) { MessageBox.Show("Email Is being used", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); Wire.Close(); }
+                if (UserExist >= 1) { MessageBox.Show("Email Is being used", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); Wire.Close(); }
                 else
                 {
                     string query_1 = "INSERT INTO USER_ACCOUNTS VALUES(@FIRST_NAME, @LAST_NAME, @EMAIL, @GENDER, @CITY, @COUNTRY, @PASSWARD, @CONFIRMED_PASSWARD, @AGE);"; // Copy the Parameters [VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, INT];
@@ -142,6 +145,11 @@ namespace PBL
         }
 
         private void customText8__TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customText10__TextChanged(object sender, EventArgs e)
         {
 
         }
