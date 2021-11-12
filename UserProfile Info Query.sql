@@ -1,0 +1,8 @@
+/*RUN IN PBL DATABASE*/
+
+CREATE TABLE dbo.UserData(EMAIL varchar(150), ABOUT_ME text, EDUCATION text, WORK text, SKILLS text, JOB varchar(50));
+SELECT * FROM dbo.UserData;
+SELECT * FROM dbo.USER_ACCOUNTS;
+INSERT INTO dbo.UserData(EMAIL) VALUES('test');
+DELETE FROM dbo.USER_ACCOUNTS;
+DELETE FROM dbo.UserData;
