@@ -246,6 +246,7 @@ namespace PBL
             this.customText10.TabIndex = 17;
             this.customText10.Texts = "";
             this.customText10.Underlined = false;
+            this.customText10._TextChanged += new System.EventHandler(this.customText10__TextChanged);
             // 
             // label4
             // 
