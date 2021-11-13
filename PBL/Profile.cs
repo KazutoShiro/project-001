@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PBL
 {
     public partial class Profile : Form
     {
         private string userEmail;
-
+        public string Image_Location = "";
         public Profile()
         {
             InitializeComponent();
@@ -78,8 +79,19 @@ namespace PBL
             catch(FormatException) { JobTitlLbl.Text = string.Empty; }
             if (JobTitlLbl.Text == string.Empty) { JobTitlLbl.Text = "(EDIT)"; }
             Execute_User_Data_Profile.Close();
-        }
 
+            SqlCommand get_picture = new SqlCommand("SELECT PROFILE_PICTURE FROM USER_DATA_PROFILE WHERE EMAIL ='" + userEmail + "';", Wire);
+            SqlDataAdapter SDA = new SqlDataAdapter(get_picture);
+            DataSet DS = new DataSet();
+            SDA.Fill(DS);
+            if (DS.Tables[0].Rows.Count > 0) 
+            {
+                MemoryStream MS = new MemoryStream((byte[])DS.Tables[0].Rows[0]["PROFILE_PICTURE"]);
+                pictureBox1.Image = new Bitmap(MS);
+            }
+            Wire.Close();
+        }
+       
         private void EditProfileBTN_Click(object sender, EventArgs e)
         {
             JOBTXTBX.Text = JobTitlLbl.Text;
@@ -88,6 +100,7 @@ namespace PBL
             WORKTXTBX.Text = WorkTxt.Text;
             SkillsTXTBX.Text = SkillsTxt.Text;
 
+            Change_Profile_Photo_BTN.Visible = true;
             SaveChangesBTN.Visible = true;
             CancelBTN.Visible = true;
             JOBTXTBX.Visible = true;
@@ -101,6 +114,7 @@ namespace PBL
 
         private void CancelBTN_Click(object sender, EventArgs e)
         {
+            Change_Profile_Photo_BTN.Visible = false;
             SaveChangesBTN.Visible = false;
             CancelBTN.Visible = false;
             JOBTXTBX.Visible = false;
@@ -178,6 +192,7 @@ namespace PBL
             //WorkTxt.Text = WORKTXTBX.Text;
             //SkillsTxt.Text = SkillsTXTBX.Text;
 
+            Change_Profile_Photo_BTN.Visible = false;
             SaveChangesBTN.Visible = false;
             CancelBTN.Visible = false;
             JOBTXTBX.Visible = false;
@@ -186,6 +201,35 @@ namespace PBL
             WORKTXTBX.Visible = false;
             SkillsTXTBX.Visible = false;
             EditProfileBTN.Visible = true;
+        }
+
+        private void Change_Profile_Photo_BTN_Click(object sender, EventArgs e)
+        {
+            Image_Location = "";
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.Title = "Choose an Image";
+            if (OFD.ShowDialog() == DialogResult.OK)
+            {
+                Image_Location = Convert.ToString(OFD.FileName);
+                pictureBox1.ImageLocation = Image_Location;
+                byte[] byte_img = null;
+                FileStream FS = new FileStream(Image_Location, FileMode.Open, FileAccess.Read);
+                BinaryReader BR = new BinaryReader(FS);
+                byte_img = BR.ReadBytes(Convert.ToInt32(FS.Length));
+
+                SqlConnection Wire_3 = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = PBL; Integrated Security = True;");
+                Wire_3.Open();
+                string query_2 = "UPDATE USER_DATA_PROFILE SET PROFILE_PICTURE = @PROFILE_PICTURE_INPUT WHERE EMAIL ='" + userEmail + "';";
+
+                SqlParameter PROFILE_PICTURE_PARAMETER = new SqlParameter();
+                PROFILE_PICTURE_PARAMETER.ParameterName = "@PROFILE_PICTURE_INPUT";
+                PROFILE_PICTURE_PARAMETER.Value = byte_img;
+
+                SqlCommand Execute_2 = new SqlCommand(query_2, Wire_3);
+                Execute_2.Parameters.Add(PROFILE_PICTURE_PARAMETER);
+                Execute_2.ExecuteNonQuery();
+                Wire_3.Close();
+            }
         }
     }
 }
