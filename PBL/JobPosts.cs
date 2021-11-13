@@ -23,15 +23,16 @@ namespace PBL
         private string location = "";
         private string date = "";
 
-        public PictureBox Picture { get => picture; set => picture = value; }
-        public string CompanyName1 { get => companyName; set => companyName = value; }
-        public string FieldName { get => fieldName; set => fieldName = value; }
-        public string Location1 { get => location; set => location = value; }
-        public string Date { get => date; set => date = value; }
+        public PictureBox Picture { get => picture; set { picture = value; } }
+        public string CompanyName1 { get => companyName; set { companyName = value;label1.Text = value; } }
+        public string FieldName { get => fieldName; set { fieldName = value;label2.Text = value; } }
+        public string Location1 { get => location; set { location = value;label3.Text = value; } }
+        public string Date { get => date; set { date = value;label4.Text = value; } }
 
         private void JobPosts_Load(object sender, EventArgs e)
         {
             this.Dock = DockStyle.Top;
         }
+        
     }
 }

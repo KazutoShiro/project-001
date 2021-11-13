@@ -28,7 +28,7 @@ namespace PBL
            
         }
 
-        private void OpenChild(Form child)
+        public void OpenChild(Form child)
         {
             if(currentChild != null)
             {
@@ -78,6 +78,7 @@ namespace PBL
         {
 
         }
+       
     }
 
        
