@@ -15,6 +15,7 @@ namespace PBL
 {
     public partial class Login : Form
     {
+        public static string currentEmail = "";
         public Login()
         {
             InitializeComponent();
@@ -34,11 +35,13 @@ namespace PBL
             if (check_account_int == 0) { MessageBox.Show("Incorrect Password or Email", "Wrong Input", MessageBoxButtons.OK, MessageBoxIcon.Error); Wire_2.Close(); }
             else
             {
+                currentEmail = Login_Email;
                 Form1 form = new Form1();
                 this.Hide();
                 form.ShowDialog();
                 this.Close();
                 Wire_2.Close();
+                
             }
         }
 
@@ -128,7 +131,19 @@ namespace PBL
                     Execute.Parameters.Add(SQL_PASSWORD_PARAMETER);
                     Execute.Parameters.Add(SQL_CONFIRMED_PASSWORD_PARAMETER);
                     Execute.Parameters.Add(SQL_AGE_PARAMETER);
+
                     Execute.ExecuteNonQuery();
+                    //Inputting of user email into account info(job titles, about me, etc.) database
+
+                    string query_2 = "INSERT INTO dbo.UserData(EMAIL) VALUES(@EMAILINFO);";
+
+                    SqlParameter SQL_EMAIL_INFO_PARAMETER = new SqlParameter("@EMAILINFO",Email);
+
+                    SqlCommand Execute2 = new SqlCommand(query_2, Wire);
+                    Execute2.Parameters.Add(SQL_EMAIL_INFO_PARAMETER);
+                    Execute2.ExecuteNonQuery();
+
+                    currentEmail = Email;
                     Form1 form = new Form1();
                     Wire.Close();
                     this.Hide();
