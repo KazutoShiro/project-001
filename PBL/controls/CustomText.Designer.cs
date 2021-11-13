@@ -39,7 +39,7 @@ namespace PBL.controls
             this.textBox1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(10, 7);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 16);
+            this.textBox1.Size = new System.Drawing.Size(230, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click_);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);

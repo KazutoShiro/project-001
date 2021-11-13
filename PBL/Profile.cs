@@ -22,79 +22,62 @@ namespace PBL
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            //initialize bunifu buttons
-
-
+            //initialize bunifu button
             userEmail = Login.currentEmail;
-
-            string connectionString = "Data Source = (localdb)\\MSSQLLocalDB;Initial Catalog = PBL; Integrated Security = True;";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-
-
-            string queryString = "SELECT FIRST_NAME, LAST_NAME, EMAIL, GENDER, CITY, COUNTRY, AGE FROM dbo.USER_ACCOUNTS WHERE EMAIL = @CurrentEmail;";
-
-            SqlParameter CurrentEmailParam = new SqlParameter("@CurrentEmail", userEmail);
-
-            SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.Add(CurrentEmailParam);
-            var reader = command.ExecuteReader();
-            reader.Read();//reads data from the sql select command
-            string usrFrstNm = reader["FIRST_NAME"].ToString();
-            string usrLstNm = reader["LAST_NAME"].ToString();
-            string usrAge = reader["AGE"].ToString();
-            string usrGndr = reader["GENDER"].ToString();
-            string usrEml = reader["EMAIL"].ToString();
-            //Displays the texts into the form profile
-            FirstNameLbl.Text = usrFrstNm;
-            LastNameLbl.Text = usrLstNm;
-            AgeLbl.Text = usrAge;
-            GenderLbl.Text = usrGndr;
-            EmailTxt.Text = usrEml;
-            reader.Close();
-
-            string profiledatastring = "SELECT ABOUT_ME,EDUCATION,WORK,SKILLS,JOB FROM dbo.UserData WHERE EMAIL = @CurrentEmail;";
-            
-            CurrentEmailParam = new SqlParameter("@CurrentEmail", userEmail);
-            command = new SqlCommand(profiledatastring, connection);
-            command.Parameters.Add(CurrentEmailParam);
-            reader = command.ExecuteReader();
-            reader.Read();
-
-            string usrAbout = reader["ABOUT_ME"].ToString();
-            string usrEdu = reader["EDUCATION"].ToString();
-            string usrWork = reader["WORK"].ToString();
-            string usrSkills = reader["SKILLS"].ToString();
-            string usrJob = reader["JOB"].ToString();
-
-            if (usrAbout == string.Empty)
+            SqlConnection Wire = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = PBL; Integrated Security = True;");
+            Wire.Open();
+            SqlCommand check_if_account_has_user_data_records = new SqlCommand("SELECT COUNT(*) FROM USER_DATA_PROFILE WHERE EMAIL ='" + userEmail + "';", Wire);
+            int check_account_records_int = Convert.ToInt32(check_if_account_has_user_data_records.ExecuteScalar());
+            if (check_account_records_int == 0) 
             {
-                usrAbout = "(edit)";
-            }
-            if (usrEdu == string.Empty)
-            {
-                usrEdu = "(edit)";
-            }
-            if (usrWork == string.Empty)
-            {
-                usrWork = "(edit)";
-            }
-            if (usrSkills == string.Empty)
-            {
-                usrSkills = "(edit)";
-            }
-            if (usrJob == string.Empty)
-            {
-                usrJob = "(edit)";
+                SqlCommand account_create_user_data_records = new SqlCommand("INSERT INTO USER_DATA_PROFILE(EMAIL) VALUES('" + userEmail + "');", Wire);
+                account_create_user_data_records.ExecuteNonQuery();
             }
 
-            AboutMeTxt.Text = usrAbout;
-            EducationTxt.Text = usrEdu;
-            WorkTxt.Text = usrWork;
-            SkillsTxt.Text = usrSkills;
-            JobTitlLbl.Text = usrJob;
+            SqlCommand command_1 = new SqlCommand("SELECT FIRST_NAME, LAST_NAME, EMAIL, GENDER, CITY, COUNTRY, AGE FROM USER_ACCOUNTS WHERE EMAIL ='" + userEmail + "';", Wire);
+            var Execute_User_Accounts = command_1.ExecuteReader();
+            Execute_User_Accounts.Read();
 
-            connection.Close();
+            try { FirstNameLbl.Text = Convert.ToString(Execute_User_Accounts["FIRST_NAME"]); }
+            catch(FormatException) { FirstNameLbl.Text = "(FIRST_NAME)"; }
+
+            try { LastNameLbl.Text = Convert.ToString(Execute_User_Accounts["LAST_NAME"]); }
+            catch(FormatException) { LastNameLbl.Text = "(LAST_NAME)"; }
+
+            try { AgeLbl.Text = Convert.ToString(Execute_User_Accounts["AGE"]); }
+            catch(FormatException) { AgeLbl.Text = "(AGE)"; }
+
+            try { GenderLbl.Text = Convert.ToString(Execute_User_Accounts["GENDER"]); }
+            catch(FormatException) { GenderLbl.Text = "(GENDER)"; }
+
+            try { EmailTxt.Text = Convert.ToString(Execute_User_Accounts["EMAIL"]); }
+            catch(FormatException) { EmailTxt.Text = "(EMAIL)"; }
+            Execute_User_Accounts.Close();
+
+            SqlCommand command_2 = new SqlCommand("SELECT ABOUT_ME, EDUCATION, WORK, SKILLS, JOB_TITLE, PROFILE_PICTURE FROM USER_DATA_PROFILE WHERE EMAIL ='" + userEmail + "';", Wire);
+            var Execute_User_Data_Profile = command_2.ExecuteReader();
+            Execute_User_Data_Profile.Read();
+
+            try { AboutMeTxt.Text = Convert.ToString(Execute_User_Data_Profile["ABOUT_ME"]); }
+            catch(FormatException) { AboutMeTxt.Text = "(EDIT)"; }
+            if (AboutMeTxt.Text == string.Empty) { AboutMeTxt.Text = "(EDIT)"; } 
+
+            try { EducationTxt.Text = Convert.ToString(Execute_User_Data_Profile["EDUCATION"]); }
+            catch(FormatException) { EducationTxt.Text = "(EDIT)"; }
+            if (EducationTxt.Text == string.Empty) { EducationTxt.Text = "(EDIT)"; }
+
+            try { WorkTxt.Text = Convert.ToString(Execute_User_Data_Profile["WORK"]); }
+            catch(FormatException) { WorkTxt.Text = "(EDIT)"; }
+            if (WorkTxt.Text == string.Empty) { WorkTxt.Text = "(EDIT)"; }
+
+            try { SkillsTxt.Text = Convert.ToString(Execute_User_Data_Profile["SKILLS"]); }
+            catch(FormatException) { SkillsTxt.Text = "(EDIT)"; }
+            if (SkillsTxt.Text == string.Empty) { SkillsTxt.Text = "(EDIT)"; }
+
+            try { JobTitlLbl.Text = Convert.ToString(Execute_User_Data_Profile["JOB_TITLE"]); }
+            catch(FormatException) { JobTitlLbl.Text = "(EDIT)"; }
+            if (JobTitlLbl.Text == string.Empty) { JobTitlLbl.Text = "(EDIT)"; }
+            Execute_User_Data_Profile.Close();
         }
 
         private void EditProfileBTN_Click(object sender, EventArgs e)
