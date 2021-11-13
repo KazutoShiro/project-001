@@ -46,5 +46,10 @@ namespace PBL
             context.SaveChanges();
             MessageBox.Show("Job Added", "SUccessfully added"+customText2.Texts, MessageBoxButtons.OK);
         }
+
+        private void customText1__TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
