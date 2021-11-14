@@ -86,8 +86,13 @@ namespace PBL
             SDA.Fill(DS);
             if (DS.Tables[0].Rows.Count > 0) 
             {
-                MemoryStream MS = new MemoryStream((byte[])DS.Tables[0].Rows[0]["PROFILE_PICTURE"]);
-                pictureBox1.Image = new Bitmap(MS);
+                try
+                {
+                    MemoryStream MS = new MemoryStream((byte[])DS.Tables[0].Rows[0]["PROFILE_PICTURE"]);
+                    pictureBox1.Image = new Bitmap(MS);
+                }
+                catch (System.InvalidCastException) { pictureBox1.ImageLocation = "C:/Users/danielle meer/Documents/Programming_Projects/C#/School/PBL/PBL/bin/Images/profile_pic_placeholder.jfif"; }  // Go to PBL -> bin -> Images and click the address bar to replace the imagelocation
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             Wire.Close();
         }
@@ -212,6 +217,7 @@ namespace PBL
             {
                 Image_Location = Convert.ToString(OFD.FileName);
                 pictureBox1.ImageLocation = Image_Location;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 byte[] byte_img = null;
                 FileStream FS = new FileStream(Image_Location, FileMode.Open, FileAccess.Read);
                 BinaryReader BR = new BinaryReader(FS);
