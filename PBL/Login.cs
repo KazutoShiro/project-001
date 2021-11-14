@@ -135,7 +135,7 @@ namespace PBL
                     Execute.ExecuteNonQuery();
                     //Inputting of user email into account info(job titles, about me, etc.) database
 
-                    string query_2 = "INSERT INTO dbo.UserData(EMAIL) VALUES(@EMAILINFO);";
+                    string query_2 = "INSERT INTO USER_ACCOUNTS(EMAIL) VALUES(@EMAILINFO);";
 
                     SqlParameter SQL_EMAIL_INFO_PARAMETER = new SqlParameter("@EMAILINFO",Email);
 
