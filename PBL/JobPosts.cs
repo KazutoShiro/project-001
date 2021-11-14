@@ -33,6 +33,10 @@ namespace PBL
         {
             this.Dock = DockStyle.Top;
         }
-        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
