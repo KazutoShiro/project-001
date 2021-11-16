@@ -43,7 +43,7 @@ namespace PBL
             string[] postDates;
             using (PBLEntities context = new PBLEntities())
             {
-                CompanyNames = context.JOB_POSTING.Select(r => r.COMPANYNAME).ToArray();
+                CompanyNames = context.JOB_POSTING.Select(r => r.COMPANYNAME).ToArray(); 
                 CompanyField = context.JOB_POSTING.Select(r => r.JOBFIELD).ToArray();
                 CompanyCity = context.JOB_POSTING.Select(r =>  r.CITY).ToArray();
                 CompanyCountry = context.JOB_POSTING.Select(r => r.COUNTRY).ToArray();

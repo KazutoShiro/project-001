@@ -20,6 +20,24 @@ namespace PBL
             InitializeComponent();
             SqlConnection Wire = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = PBL; Integrated Security = True;");
             Wire.Open();
+            SqlCommand get_job_title = new SqlCommand("SELECT JOB_TITLE FROM USER_DATA_PROFILE WHERE EMAIL ='" + Login.currentEmail + "';", Wire);
+            var Execute_User_Data_Profile = get_job_title.ExecuteReader();
+            Execute_User_Data_Profile.Read();
+
+            try { label2.Text = Convert.ToString(Execute_User_Data_Profile["JOB_TITLE"]); }
+            catch (FormatException) { label2.Text = string.Empty; }
+            if (label2.Text == string.Empty) { label2.Text = "Software Engineer"; }
+            Execute_User_Data_Profile.Close();
+
+            SqlCommand get_last_name = new SqlCommand("SELECT LAST_NAME FROM USER_ACCOUNTS WHERE EMAIL ='" + Login.currentEmail + "';", Wire);
+            var Execute_User_Accounts = get_last_name.ExecuteReader();
+            Execute_User_Accounts.Read();
+
+            try { label1.Text = Convert.ToString(Execute_User_Accounts["LAST_NAME"]); }
+            catch (FormatException) { label1.Text = string.Empty; }
+            if (label1.Text == string.Empty) { label1.Text = "(LAST_NAME)"; }
+            Execute_User_Accounts.Close();
+
             SqlCommand get_picture = new SqlCommand("SELECT PROFILE_PICTURE FROM USER_DATA_PROFILE WHERE EMAIL ='" + Login.currentEmail + "';", Wire);
             SqlDataAdapter SDA = new SqlDataAdapter(get_picture);
             DataSet DS = new DataSet();
