@@ -39,11 +39,11 @@ namespace PBL
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.rButton1 = new PBL.controls.RButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.rButton1 = new PBL.controls.RButton();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -155,6 +155,7 @@ namespace PBL
             this.iconButton4.Text = "Forums";
             this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
             // iconButton3
             // 
@@ -234,6 +235,25 @@ namespace PBL
             this.label1.Text = "Last Name";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // rButton1
+            // 
+            this.rButton1.BackColor = System.Drawing.Color.Transparent;
+            this.rButton1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rButton1.BorderColor = System.Drawing.Color.Transparent;
+            this.rButton1.BorderRadius = 50;
+            this.rButton1.BorderSize = 0;
+            this.rButton1.FlatAppearance.BorderSize = 0;
+            this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.rButton1.Location = new System.Drawing.Point(48, 55);
+            this.rButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.rButton1.Name = "rButton1";
+            this.rButton1.Size = new System.Drawing.Size(67, 62);
+            this.rButton1.TabIndex = 3;
+            this.rButton1.TextColor = System.Drawing.Color.Transparent;
+            this.rButton1.UseVisualStyleBackColor = false;
+            this.rButton1.Click += new System.EventHandler(this.rButton1_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(317, 30);
@@ -287,25 +307,6 @@ namespace PBL
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // rButton1
-            // 
-            this.rButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.rButton1.BorderRadius = 50;
-            this.rButton1.BorderSize = 0;
-            this.rButton1.FlatAppearance.BorderSize = 0;
-            this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.rButton1.Location = new System.Drawing.Point(48, 55);
-            this.rButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.rButton1.Name = "rButton1";
-            this.rButton1.Size = new System.Drawing.Size(67, 62);
-            this.rButton1.TabIndex = 3;
-            this.rButton1.TextColor = System.Drawing.Color.Transparent;
-            this.rButton1.UseVisualStyleBackColor = false;
-            this.rButton1.Click += new System.EventHandler(this.rButton1_Click);
             // 
             // Form1
             // 
