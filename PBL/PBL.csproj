@@ -196,8 +196,20 @@
     <Compile Include="Jobs.Designer.cs">
       <DependentUpon>Jobs.cs</DependentUpon>
     </Compile>
+    <Compile Include="JOB_DESCRIPTION_AND_REVIEWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JOB_DESCRIPTION_AND_REVIEWS.Designer.cs">
+      <DependentUpon>JOB_DESCRIPTION_AND_REVIEWS.cs</DependentUpon>
+    </Compile>
     <Compile Include="JOB_POSTING.cs">
       <DependentUpon>pblentities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Job_Reviews.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Job_Reviews.Designer.cs">
+      <DependentUpon>Job_Reviews.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -240,6 +252,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <Compile Include="USER_ACCOUNTS.cs">
       <DependentUpon>pblentities.tt</DependentUpon>
     </Compile>
@@ -254,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jobs.resx">
       <DependentUpon>Jobs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JOB_DESCRIPTION_AND_REVIEWS.resx">
+      <DependentUpon>JOB_DESCRIPTION_AND_REVIEWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Job_Reviews.resx">
+      <DependentUpon>Job_Reviews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

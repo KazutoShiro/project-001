@@ -122,6 +122,11 @@ namespace PBL
             }
             Wire.Close();
         }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            OpenChild(new JOB_DESCRIPTION_AND_REVIEWS());
+        }
     }
 
        
