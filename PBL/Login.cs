@@ -133,14 +133,15 @@ namespace PBL
                     Execute.Parameters.Add(SQL_AGE_PARAMETER);
 
                     Execute.ExecuteNonQuery();
-                    //Inputting of user email into account info(job titles, about me, etc.) database
+                    //Inputting of user email into dbo.USER_DATA_PROFILE
 
-                    string query_2 = "INSERT INTO USER_ACCOUNTS(EMAIL) VALUES(@EMAILINFO);";
+                    string query_2 = "INSERT INTO dbo.USER_DATA_PROFILE(EMAIL) VALUES(@EMAILINFO);";
 
                     SqlParameter SQL_EMAIL_INFO_PARAMETER = new SqlParameter("@EMAILINFO",Email);
 
                     SqlCommand Execute2 = new SqlCommand(query_2, Wire);
                     Execute2.Parameters.Add(SQL_EMAIL_INFO_PARAMETER);
+
                     Execute2.ExecuteNonQuery();
 
                     currentEmail = Email;

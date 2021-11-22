@@ -91,7 +91,7 @@ namespace PBL
                     MemoryStream MS = new MemoryStream((byte[])DS.Tables[0].Rows[0]["PROFILE_PICTURE"]);
                     pictureBox1.Image = new Bitmap(MS);
                 }
-                catch (System.InvalidCastException) { pictureBox1.ImageLocation = "C:/Users/danielle meer/Documents/Programming_Projects/C#/School/PBL/PBL/bin/Images/profile_pic_placeholder.jfif"; }  // Go to PBL -> bin -> Images and click the address bar to replace the imagelocation
+                catch (System.InvalidCastException) { pictureBox1.Image = Properties.Resources.default_profile; }  
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             Wire.Close();
@@ -206,6 +206,10 @@ namespace PBL
             WORKTXTBX.Visible = false;
             SkillsTXTBX.Visible = false;
             EditProfileBTN.Visible = true;
+
+            Form1 parentForm = (this.ParentForm as Form1);
+            parentForm.UpdateForm();
+
         }
 
         private void Change_Profile_Photo_BTN_Click(object sender, EventArgs e)
