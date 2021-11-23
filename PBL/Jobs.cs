@@ -21,7 +21,6 @@ namespace PBL
 
         private void rButton3_Click(object sender, EventArgs e)
         {
-            
             PostingJobs pj = new PostingJobs();
             pj.TopLevel = false;
             pj.Show();
@@ -63,6 +62,11 @@ namespace PBL
             }
                 
             
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
