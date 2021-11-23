@@ -29,7 +29,14 @@ namespace PBL
         public string First_Name { get => First_Name_Private; set { First_Name_Private = value; Firstname.Text = First_Name_Private; } }
         public string Last_Name { get => Last_Name_Private; set { Last_Name_Private = value; LastName.Text = Last_Name_Private; } }
         public string Comments { get => Comment_Private; set { Comment_Private = value;  Comment.Text = Comment_Private;  } }
-        public int rating_value { get => rating_value_Private; set { rating_value_Private = value; bunifuRating1.Value = rating_value_Private; } }
+        public int rating_value { get => rating_value_Private; 
+        set 
+           { 
+                rating_value_Private = value; 
+                bunifuRating1.Value = rating_value_Private; 
+                bunifuRating1.ReadOnly = true;
+            } 
+         }
         public Bitmap profile_pic { get => profile_pic_Private; set { profile_pic_Private = value; pictureBox1.Image = profile_pic_Private; pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage; } }
         public string Date { get => Date_Private; set { Date_Private = value; Dates.Text = Date_Private; } }
 
