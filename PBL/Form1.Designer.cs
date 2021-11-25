@@ -39,11 +39,11 @@ namespace PBL
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.rButton1 = new PBL.controls.RButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.rButton1 = new PBL.controls.RButton();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -224,6 +224,26 @@ namespace PBL
             this.label1.Text = "Last Name";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // rButton1
+            // 
+            this.rButton1.BackColor = System.Drawing.Color.Transparent;
+            this.rButton1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.rButton1.BackgroundImage = global::PBL.Properties.Resources.default_profile;
+            this.rButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rButton1.BorderColor = System.Drawing.Color.Transparent;
+            this.rButton1.BorderRadius = 50;
+            this.rButton1.BorderSize = 0;
+            this.rButton1.FlatAppearance.BorderSize = 0;
+            this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.rButton1.Location = new System.Drawing.Point(36, 45);
+            this.rButton1.Name = "rButton1";
+            this.rButton1.Size = new System.Drawing.Size(50, 50);
+            this.rButton1.TabIndex = 3;
+            this.rButton1.TextColor = System.Drawing.Color.Transparent;
+            this.rButton1.UseVisualStyleBackColor = false;
+            this.rButton1.Click += new System.EventHandler(this.rButton1_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(266, 24);
@@ -239,7 +259,7 @@ namespace PBL
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1040, 24);
+            this.panel3.Size = new System.Drawing.Size(1280, 24);
             this.panel3.TabIndex = 0;
             // 
             // iconButton7
@@ -274,31 +294,11 @@ namespace PBL
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // rButton1
-            // 
-            this.rButton1.BackColor = System.Drawing.Color.Transparent;
-            this.rButton1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.rButton1.BackgroundImage = global::PBL.Properties.Resources.default_profile;
-            this.rButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.rButton1.BorderColor = System.Drawing.Color.Transparent;
-            this.rButton1.BorderRadius = 50;
-            this.rButton1.BorderSize = 0;
-            this.rButton1.FlatAppearance.BorderSize = 0;
-            this.rButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.rButton1.Location = new System.Drawing.Point(36, 45);
-            this.rButton1.Name = "rButton1";
-            this.rButton1.Size = new System.Drawing.Size(50, 50);
-            this.rButton1.TabIndex = 3;
-            this.rButton1.TextColor = System.Drawing.Color.Transparent;
-            this.rButton1.UseVisualStyleBackColor = false;
-            this.rButton1.Click += new System.EventHandler(this.rButton1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 640);
+            this.ClientSize = new System.Drawing.Size(1280, 848);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
